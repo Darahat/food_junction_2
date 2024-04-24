@@ -1,0 +1,137 @@
+.ms-n5 {
+  margin-left: -40px;
+}
+
+.inline-icon {
+  vertical-align: middle;
+  font-size: 24px !important;
+}
+.text-purple{
+  color: #ce93d8 !important;
+}
+.text-pink{
+  color: #f48fb1 !important;
+}
+.text-red{
+  color: #e57373 !important;
+}
+.border-red{
+  border: 1px solid #e57373 !important;
+}
+.bg-red{
+  background: #e57373;
+}
+.text-orange{
+  color: #ffab91 !important;
+}
+.bg-orange{
+  background: #ffab91;
+}
+.text-green{
+  color: #81c784 !important;
+}
+.border-green{
+  border: 1px solid #81c784 !important;
+}
+.bg-green{
+  background: #81c784;
+}
+.text-blue{
+  color: #7986cb !important;
+}
+.border-blue{
+  border: 1px solid #7986cb !important;
+}
+.text-lemon{
+  color: #aed581 !important;
+}
+.remove-border{
+  border:0px !important;
+  border-radius: 10px;
+}
+.avatar {
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+} 
+.food-avatar {
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid lightgray;
+} 
+.midium-size-icon{
+  font-size: 25px !important;
+}
+.text-right{
+text-align: right;
+}
+.text-left{
+  text-align: left;
+}
+.text-center{
+  text-align: center;
+}
+
+/* fonts */
+.lrg-font{
+  font-size: large;
+}
+.mid-font{
+  font-size: large;
+}
+.l-font{
+  font-size: large;
+}
+.logo-avator{
+  max-height: 200px;
+}
+.auth-primary-color{
+  background: #f8f9fe !important;
+}
+.auth-secondary-color{
+  background:#f7fafc !important;
+}
+.input-group-alternative {
+  transition: box-shadow .15s ease  !important;
+  border: 0 !important;
+  box-shadow: 0 1px 3px rgb(50 50 93 / 15%), 0 1px 0 rgb(0 0 0 / 2%) !important;
+  background-color: #f1f8ff !important;
+}
+.shadow-textarea textarea.form-control::placeholder {
+  font-weight: 300;
+}
+.shadow-textarea textarea.form-control {
+  padding-left: 0.8rem;
+}
+.auth-card{
+  max-width: auto;
+  min-width: 300px;
+  padding: 25px;
+}
+table caption {
+	padding: .5em 0;
+}
+
+table.dataTable th,
+table.dataTable td {
+  white-space: nowrap;
+}
+
+.p {
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+}
+ /* .paginate_button {
+  padding: 6px 9px !important;
+  background: #54c5e6 !important;
+  border-color: #2196F3 !important;
+} */
+
+li .paginate_button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}

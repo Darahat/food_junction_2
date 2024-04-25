@@ -331,11 +331,9 @@
      </nav>
      <!-- sidebar-wrapper  -->
      <main class="page-content">
-         <!-- page-wrapper -->
-
-
-         @yield('content')
-     </main>
+        @include('Dashboard.Components.navbarTop')
+        @yield('content')
+      </main>
 
    </div>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

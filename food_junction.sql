@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2021 at 12:00 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: Apr 24, 2024 at 07:09 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `food_junction`
 --
-CREATE DATABASE IF NOT EXISTS `food_junction` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `food_junction`;
 
 -- --------------------------------------------------------
 
@@ -43,7 +41,7 @@ CREATE TABLE `account_receive` (
   `amount` double NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -57,7 +55,7 @@ CREATE TABLE `bank_account` (
   `account_no` varchar(200) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bank_account`
@@ -82,7 +80,7 @@ CREATE TABLE `bank_cheque` (
   `status` varchar(100) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -96,7 +94,7 @@ CREATE TABLE `bank_info` (
   `bank_address` text NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bank_info`
@@ -124,7 +122,7 @@ CREATE TABLE `bank_transfer` (
   `transfer_by` varchar(200) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bank_transfer`
@@ -161,7 +159,7 @@ CREATE TABLE `cafe_table` (
   `table_name` varchar(300) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `cafe_table`
@@ -227,7 +225,7 @@ CREATE TABLE `cash_in_bank` (
   `balance` double NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `cash_in_bank`
@@ -247,7 +245,7 @@ CREATE TABLE `cash_in_hand` (
   `amount` double NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `cash_in_hand`
@@ -269,7 +267,7 @@ CREATE TABLE `cheque_temp` (
   `account_no` varchar(100) NOT NULL,
   `cheque_book_no` varchar(200) NOT NULL,
   `cheque_no` varchar(150) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -287,7 +285,7 @@ CREATE TABLE `company` (
   `company_logo` varchar(200) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `company`
@@ -304,8 +302,8 @@ INSERT INTO `company` (`id`, `company_name`, `address`, `contact_no`, `email_add
 
 CREATE TABLE `countries` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `country_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `capital_city` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country_name` varchar(255) NOT NULL,
+  `capital_city` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -357,7 +355,7 @@ CREATE TABLE `customer` (
   `status` varchar(100) NOT NULL DEFAULT 'pending',
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `customer`
@@ -385,7 +383,7 @@ CREATE TABLE `customer_type` (
   `discount_ratio` double NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `customer_type`
@@ -408,7 +406,7 @@ CREATE TABLE `expense_name` (
   `expense_name` varchar(300) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `expense_name`
@@ -431,7 +429,7 @@ CREATE TABLE `expense_type` (
   `expense_type_name` varchar(300) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `expense_type`
@@ -450,11 +448,11 @@ INSERT INTO `expense_type` (`id`, `expense_type_name`, `created`, `modified`) VA
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -467,7 +465,7 @@ CREATE TABLE `failed_jobs` (
 CREATE TABLE `invoice_track` (
   `id` bigint(20) NOT NULL,
   `invoice_no` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -480,7 +478,7 @@ CREATE TABLE `kot_main_truck` (
   `kot_id` int(11) NOT NULL,
   `product_code` varchar(200) NOT NULL,
   `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -493,7 +491,7 @@ CREATE TABLE `kot_setting` (
   `product_code` varchar(200) NOT NULL,
   `total_qty` double NOT NULL,
   `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `kot_setting`
@@ -517,7 +515,7 @@ CREATE TABLE `kot_setting_product` (
   `quantity` double NOT NULL,
   `en_sl` int(11) NOT NULL,
   `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `kot_setting_product`
@@ -547,7 +545,7 @@ CREATE TABLE `kot_setting_temp` (
   `username` varchar(200) NOT NULL,
   `product_code` varchar(200) NOT NULL,
   `quantity` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -557,7 +555,7 @@ CREATE TABLE `kot_setting_temp` (
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -594,7 +592,7 @@ CREATE TABLE `office_expense` (
   `amount` double DEFAULT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `office_expense`
@@ -615,7 +613,7 @@ CREATE TABLE `package_setting` (
   `product_code` varchar(200) NOT NULL,
   `total_qty` double NOT NULL,
   `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `package_setting`
@@ -638,7 +636,7 @@ CREATE TABLE `package_setting_product` (
   `quantity` double NOT NULL,
   `en_sl` int(11) NOT NULL,
   `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `package_setting_product`
@@ -660,7 +658,7 @@ CREATE TABLE `package_setting_temp` (
   `username` varchar(200) NOT NULL,
   `product_code` varchar(200) NOT NULL,
   `quantity` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -669,8 +667,8 @@ CREATE TABLE `package_setting_temp` (
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -682,11 +680,11 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -713,7 +711,7 @@ CREATE TABLE `product` (
   `product_type` int(11) NOT NULL DEFAULT 1 COMMENT '1= main item, 2=sub item, 3 = package',
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `product`
@@ -909,8 +907,8 @@ INSERT INTO `product` (`id`, `product_id`, `product_category_id`, `product_code`
 
 CREATE TABLE `product_category` (
   `id` bigint(20) NOT NULL,
-  `product_category_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `category_name` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `product_category_id` varchar(50) NOT NULL,
+  `category_name` varchar(300) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -940,7 +938,7 @@ CREATE TABLE `product_types` (
   `type_name` varchar(200) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `product_types`
@@ -968,7 +966,7 @@ CREATE TABLE `receivd_delivery_temp` (
   `quantity` double NOT NULL,
   `p_price` varchar(100) NOT NULL,
   `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `receivd_delivery_temp`
@@ -995,7 +993,7 @@ CREATE TABLE `received_delivery` (
   `supplier_id` varchar(100) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `received_delivery`
@@ -1031,7 +1029,7 @@ CREATE TABLE `received_delivery_product` (
   `en_sl` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `received_delivery_product`
@@ -1162,7 +1160,7 @@ CREATE TABLE `sell_order` (
   `invoice_status` int(11) NOT NULL DEFAULT 0 COMMENT '0 = active, 1= inactive',
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `sell_order`
@@ -1878,7 +1876,7 @@ CREATE TABLE `sell_order_product` (
   `invoice_status` int(11) NOT NULL DEFAULT 0 COMMENT '0 = active, 1= inactive',
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `sell_order_product`
@@ -3155,7 +3153,7 @@ INSERT INTO `sell_order_product` (`id`, `invoice_no`, `order_date`, `table_id`, 
 CREATE TABLE `sell_quantity` (
   `id` bigint(20) NOT NULL,
   `qty_val` double NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `sell_quantity`
@@ -3187,7 +3185,7 @@ CREATE TABLE `sell_return` (
   `station_id` varchar(100) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -3206,7 +3204,7 @@ CREATE TABLE `sell_return_temp` (
   `p_price` varchar(100) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -3226,7 +3224,7 @@ CREATE TABLE `sell_temp` (
   `order_note` text NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT '1= pending, 2= confirmed, 3 =delivered',
   `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `sell_temp`
@@ -3247,7 +3245,7 @@ CREATE TABLE `station` (
   `station_name` varchar(300) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `station`
@@ -3271,7 +3269,7 @@ CREATE TABLE `stock` (
   `product_balance` double NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `stock`
@@ -3394,7 +3392,7 @@ CREATE TABLE `stock_in` (
   `quantity` varchar(50) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `stock_in`
@@ -3526,7 +3524,7 @@ CREATE TABLE `stock_out` (
   `quantity` varchar(50) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `stock_out`
@@ -4818,7 +4816,7 @@ CREATE TABLE `stock_temp` (
   `product_type` varchar(100) NOT NULL COMMENT '1 = main item, 2 = sub item',
   `product_code` varchar(50) NOT NULL,
   `quantity` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -4838,7 +4836,7 @@ CREATE TABLE `supplier` (
   `email` varchar(20) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `supplier`
@@ -4870,7 +4868,7 @@ CREATE TABLE `supplier_payment` (
   `amount` double NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -4884,7 +4882,7 @@ CREATE TABLE `supplier_type` (
   `type_name` varchar(300) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `supplier_type`
@@ -4905,7 +4903,7 @@ CREATE TABLE `table_track` (
   `user_id` varchar(100) NOT NULL,
   `table_id` varchar(200) NOT NULL,
   `order_no` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -4919,7 +4917,7 @@ CREATE TABLE `tax_rate` (
   `tax_ratio` double NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tax_rate`
@@ -4940,7 +4938,7 @@ CREATE TABLE `unit_type` (
   `unit_type` varchar(100) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `unit_type`
@@ -4989,14 +4987,14 @@ CREATE TABLE `users` (
   `lastvisit` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `superuser` int(1) NOT NULL DEFAULT 0,
   `status` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `full_name`, `station_id`, `activkey`, `create_at`, `sell_prev`, `sell_user_prev`, `product_prev`, `stock_prev`, `requisition_prev`, `received_delivery_prev`, `customer_prev`, `supplier_prev`, `accounts_prev`, `configuration_prev`, `kitchen_prev`, `superadmin_prev`, `with_table`, `user_sign`, `created`, `lastvisit`, `superuser`, `status`) VALUES
-(1, 'admin', '$2y$10$gph0fH7GLKzqaJHZQb5Z.e4hEqUyXSRJCXZM25dayiJMVs9MCByGa', 'sanchoy7@gmail.com', 'Kazi Sanchoy Ahmed', '1', '9a24eff8c15a6a141ece27eb6947da0f', '2012-02-23 01:52:12', 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '', NULL, '0000-00-00 00:00:00', 1, 1),
+(1, 'admin', '$2a$12$KLrv.IDjorQgmoH4urIVdeKeMIuEVROMfhV3HMAAHQz6g65nGTALO', 'darahat42@gmail.com', 'Didarul alam Rahat', '1', '9a24eff8c15a6a141ece27eb6947da0f', '2012-02-23 01:52:12', 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '', NULL, '0000-00-00 00:00:00', 1, 1),
 (2, 'cash', 'e10adc3949ba59abbe56e057f20f883e', 'demo@example.com', 'Cash', '2', '099f825543f7850cc038b90aaff39fac', '2012-02-23 01:52:12', 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '', NULL, '0000-00-00 00:00:00', 0, 1),
 (9, 'weater1', 'adcb76d89d0b8bd82f2263cd9b6b6ab9', 'weater1@yahoo.com', 'Weater 1', '1', '', '2013-09-05 05:33:13', 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, NULL, 1, '', NULL, '0000-00-00 00:00:00', 0, 0);
 
@@ -5008,11 +5006,11 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `full_name`, `statio
 
 CREATE TABLE `users_pre` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -5036,7 +5034,7 @@ CREATE TABLE `vat_service_charge_ratio` (
   `service_charge_ratio` double NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `vat_service_charge_ratio`
